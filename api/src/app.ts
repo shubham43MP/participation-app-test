@@ -3,7 +3,7 @@ import cors from 'cors';
 import logger from './utils/logger';
 import { Request, Response, NextFunction } from 'express';
 import healthRouter from './routes/health.route';
-
+import userRoutes from './routes/user.route';
 const app = express();
 
 app.use(cors());
@@ -17,7 +17,7 @@ app.use((req, _res, next) => {
 
 // Health check route
 app.use('/', healthRouter);
-
+app.use('/', userRoutes);
 // ❌ Error handler (always last)
 app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
   logger.error(err.stack || err.message);
