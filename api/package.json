@@ -1,7 +1,7 @@
 {
   "name": "api",
   "scripts": {
-    "dev": "nodemon src/server.ts",
+    "dev": "nodemon",
     "lint": "eslint . --ext .ts && prettier --check .",
     "format": "prettier --write .",
     "start": "ts-node src/server.ts",
