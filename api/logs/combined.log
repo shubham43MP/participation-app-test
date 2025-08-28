@@ -26,3 +26,6 @@
 2025-08-28 12:33:09 | INFO | GET /health
 2025-08-28 12:33:10 | INFO | GET /health
 2025-08-28 12:34:07 | INFO | GET /health
+2025-08-28 13:01:23 | INFO | 🟢 Server running at 3001
+2025-08-28 13:01:46 | INFO | GET /health
+2025-08-28 13:01:48 | INFO | GET /health

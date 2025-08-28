@@ -1,10 +1,9 @@
 {
   "name": "api",
   "scripts": {
-    "dev": "nodemon",
+    "dev": "nodemon src/server.ts",
     "lint": "eslint . --ext .ts && prettier --check .",
     "format": "prettier --write .",
-    "prepare": "husky install",
     "start": "ts-node src/server.ts",
     "build": "tsc"
   },

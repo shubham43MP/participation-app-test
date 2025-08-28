@@ -1,0 +1,30 @@
+{
+  "name": "fullstack-challenge",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev:api": "pnpm --filter api dev",
+    "dev:client": "pnpm --filter client dev",
+    "dev": "concurrently \"pnpm dev:api\" \"pnpm dev:client\"",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "format": "pnpm -r format",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "eslint": "^9.34.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^16.1.5",
+    "prettier": "^3.6.2"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx,js,jsx}": [
+      "pnpm exec eslint --fix",
+      "pnpm exec prettier --write"
+    ],
+    "**/*.{json,css,md}": [
+      "pnpm exec prettier --write"
+    ]
+  }
+}

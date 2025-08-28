@@ -1,0 +1,40 @@
+# Node.js
+node_modules
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+dist
+build
+.cache
+*.tsbuildinfo
+
+# Logs
+logs
+*.log
+
+# Env files
+.env
+.env.*.local
+
+# Vite / React
+client/.vite
+client/dist
+
+# API build
+api/dist
+
+# IDE / Editor
+.vscode
+.idea
+*.swp
+.DS_Store
+Thumbs.db
+
+# Husky backup
+.husky/_
+
+# pnpm store (if local)
+.pnpm-store
