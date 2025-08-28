@@ -4,10 +4,12 @@ import logger from './utils/logger';
 import { Request, Response, NextFunction } from 'express';
 import healthRouter from './routes/health.route';
 import userRoutes from './routes/user.route';
+import { responseMiddleware } from './middlewares/response.middleware';
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(responseMiddleware);
 
 // ✅ Request logger middleware
 app.use((req, _res, next) => {
