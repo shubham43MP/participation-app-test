@@ -12,7 +12,13 @@ export class UserController {
       );
       res.status(201).json({ success: true, data: user });
     } catch (error: unknown) {
-      res.status(500).json({ success: false, message: error.message });
+      if (error instanceof Error) {
+        res.status(500).json({ success: false, message: error.message });
+      } else {
+        res
+          .status(500)
+          .json({ success: false, message: 'Unknown error occurred' });
+      }
     }
   }
 
@@ -21,7 +27,13 @@ export class UserController {
       const users = await UserService.getUsers();
       res.status(200).json({ success: true, data: users });
     } catch (error: unknown) {
-      res.status(500).json({ success: false, message: error.message });
+      if (error instanceof Error) {
+        res.status(500).json({ success: false, message: error.message });
+      } else {
+        res
+          .status(500)
+          .json({ success: false, message: 'Unknown error occurred' });
+      }
     }
   }
 }

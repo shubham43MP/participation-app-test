@@ -103,3 +103,15 @@
 2025-08-28 15:20:23 | INFO | GET /users
 2025-08-28 15:23:21 | INFO | 🟢 Server running at 3001
 2025-08-28 15:23:34 | INFO | 🟢 Server running at 3001
+2025-08-28 15:27:59 | INFO | 🟢 Server running at 3001
+2025-08-28 15:27:59 | INFO | GET /users
+2025-08-28 15:28:04 | INFO | POST /users
+2025-08-28 15:28:07 | INFO | GET /users
+2025-08-28 15:28:50 | INFO | GET /users
+2025-08-28 15:29:28 | INFO | 🟢 Server running at 3001
+2025-08-28 15:29:41 | INFO | 🟢 Server running at 3001
+2025-08-28 15:29:43 | INFO | GET /users
+2025-08-28 15:29:44 | INFO | GET /users
+2025-08-28 15:31:51 | INFO | GET /users
+2025-08-28 15:31:54 | INFO | POST /users
+2025-08-28 15:31:56 | INFO | GET /users
