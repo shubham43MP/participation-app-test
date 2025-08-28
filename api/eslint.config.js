@@ -1,15 +1,8 @@
-import tseslint from 'typescript-eslint';
-import prettier from 'eslint-config-prettier';
-
 export default [
-  ...tseslint.config({
-    files: ['**/*.ts'],
-    extends: [...tseslint.configs.recommended, prettier],
-    rules: {
-      '@typescript-eslint/no-unused-vars': [
-        'warn',
-        { argsIgnorePattern: '^_' },
-      ],
-    },
-  }),
+  {
+    files: ['**/*.{ts,tsx,js,jsx}'],
+    languageOptions: { ecmaVersion: 'latest', sourceType: 'module' },
+    ignores: ['node_modules/', 'dist/', 'build/'],
+    rules: {},
+  },
 ];
