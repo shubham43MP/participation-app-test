@@ -150,3 +150,8 @@
 2025-08-28 16:19:57 | INFO | GET /users
 2025-08-28 16:19:58 | INFO | GET /users
 2025-08-28 16:20:11 | INFO | 🟢 Server running at 3001
+2025-08-28 17:06:43 | INFO | 🟢 Server running at 3001
+2025-08-28 17:06:44 | INFO | GET /users
+2025-08-28 17:07:14 | INFO | POST /users
+2025-08-28 17:07:18 | INFO | POST /users
+2025-08-28 17:07:20 | INFO | GET /users
