@@ -15,9 +15,10 @@ app.use((req, _res, next) => {
   next();
 });
 
-// Health check route
+// routes
 app.use('/', healthRouter);
 app.use('/', userRoutes);
+
 // ❌ Error handler (always last)
 app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
   logger.error(err.stack || err.message);
