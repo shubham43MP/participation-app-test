@@ -1,5 +1,5 @@
 {
-  "name": "backend-template",
+  "name": "api",
   "scripts": {
     "dev": "nodemon",
     "lint": "eslint . --ext .ts && prettier --check .",
