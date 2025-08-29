@@ -112,7 +112,8 @@ Inside api/ setup Prisma:
 cd api
 pnpm add -D prisma
 pnpm add @prisma/client
-npx prisma generate
+pnpm prisma migrate dev --name init
+pnpm prisma generate
 ```
 
 ### 3️⃣ Run with Docker (recommended)
