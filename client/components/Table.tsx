@@ -1,15 +1,10 @@
-type User = {
-  id: number;
-  firstName: string;
-  lastName: string;
-  participationPercentage: number;
-};
+import { User } from "@/services/userService";
 
-type Props = {
+type DataTableProps = {
   data: User[];
 };
 
-export default function DataTable({ data }: Props) {
+export default function DataTable({ data }: DataTableProps) {
   return (
     <div className="w-full mx-auto shadow-lg rounded-lg bg-white">
       <div className="overflow-hidden border border-gray-200 rounded-lg">

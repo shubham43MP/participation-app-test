@@ -1,5 +1,6 @@
 "use client";
 
+import { User } from "@/services/userService";
 import {
   ArcElement,
   Chart as ChartJS,
@@ -9,13 +10,6 @@ import {
 } from "chart.js";
 import React from "react";
 import { Pie } from "react-chartjs-2";
-
-type User = {
-  id: number;
-  firstName: string;
-  lastName: string;
-  participationPercentage: number;
-};
 
 type PieChartProps = {
   data: User[];

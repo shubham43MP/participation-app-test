@@ -1,13 +1,17 @@
 import { fetchClient } from "./fetchClient";
 
 export type User = {
-  id?: number;
+  id: number;
   firstName: string;
   lastName: string;
   participationPercentage: number;
+  createdAt: string;
 };
 
-// Create a new user
+export type UsersResponse = {
+  success: boolean;
+  data: User[];
+};
 export async function createUser(user: User) {
   return fetchClient<User>("/users", {
     method: "POST",
@@ -15,7 +19,6 @@ export async function createUser(user: User) {
   });
 }
 
-// Get all users
 export async function getUsers() {
-  return fetchClient<User[]>("/users");
+  return fetchClient<UsersResponse>("/users");
 }

@@ -4,7 +4,7 @@ import UserForm from "@/components/UserForm";
 import { getUsers } from "@/services/userService";
 
 export default async function Home() {
-  const users = await getUsers();
+  const { data: users } = await getUsers();
   return (
     <main className="min-h-screen bg-gray-100">
       <section className="bg-cyan-500 p-8">
@@ -17,10 +17,10 @@ export default async function Home() {
         </p>
         <div className="flex flex-col flex-wrap md:flex-row w-full items-center justify-around md:gap-16 gap-8 mt-12">
           <div className="flex-1 w-full">
-            <DataTable data={users.data} />
+            <DataTable data={users} />
           </div>
           <div className="flex-1 w-full">
-            <PieChart data={users.data} />
+            <PieChart data={users} />
           </div>
         </div>
       </section>
