@@ -9,11 +9,12 @@ import {
   Tooltip,
 } from "chart.js";
 import React from "react";
-import { Doughnut, Pie } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 
 type PieChartProps = {
   data: User[];
 };
+
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const PieChart: React.FC<PieChartProps> = ({ data }) => {
@@ -28,7 +29,14 @@ export const PieChart: React.FC<PieChartProps> = ({ data }) => {
     "#7C3AED",
     "#94A3B8",
     "#EF4444",
+    "#F59E0B",
+    "#10B981",
+    "#8B5CF6",
+    "#E11D48",
+    "#3B82F6",
   ];
+
+  const hoverBackgroundColors = backgroundColors.map((color) => color + "CC");
 
   const chartData = {
     labels,
@@ -38,6 +46,10 @@ export const PieChart: React.FC<PieChartProps> = ({ data }) => {
         backgroundColor: backgroundColors,
         borderColor: "#fff",
         borderWidth: 2,
+        hoverOffset: 5,
+        hoverBorderColor: "#000",
+        hoverBorderWidth: 2,
+        hoverBackgroundColor: hoverBackgroundColors,
       },
     ],
   };
@@ -57,6 +69,9 @@ export const PieChart: React.FC<PieChartProps> = ({ data }) => {
           boxHeight: 24,
           padding: 20,
         },
+        onHover: (event) => {
+          (event.native?.target as HTMLCanvasElement).style.cursor = "pointer";
+        },
       },
       tooltip: {
         enabled: true,
@@ -68,6 +83,19 @@ export const PieChart: React.FC<PieChartProps> = ({ data }) => {
         },
         bodyAlign: "center",
       },
+    },
+    animation: {
+      animateRotate: true,
+      animateScale: true,
+      easing: "easeOutBounce",
+    },
+    hover: {
+      mode: "nearest",
+      intersect: true,
+    },
+    onHover: (event, chartElement) => {
+      const target = event.native?.target as HTMLCanvasElement;
+      target.style.cursor = chartElement.length ? "pointer" : "default";
     },
   };
 

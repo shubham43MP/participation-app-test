@@ -19,7 +19,7 @@ export const DataTable = ({ data }: DataTableProps) => {
     <div className="w-full mx-auto shadow-lg rounded-lg bg-white">
       <div className="overflow-hidden border border-gray-200 rounded-lg">
         <div className="overflow-y-auto">
-          <table className="w-full border-collapse text-sm">
+          <table className="w-full border-collapse text-sm overflow-hidden">
             <thead className="bg-gray-100 sticky top-0 z-10">
               <tr>
                 {TABLE_HEADERS.map((header, index) => (
@@ -37,7 +37,7 @@ export const DataTable = ({ data }: DataTableProps) => {
               {data.map((row, i) => (
                 <tr
                   key={row.id}
-                  className="even:bg-gray-50 hover:bg-gray-100 transition-colors"
+                  className="even:bg-gray-50 hover:bg-cyan-200 hover:scale-105 hover:shadow-lg transition-transform duration-300 ease-in-out cursor-pointer"
                 >
                   <td className="py-3 px-4 border-b text-center">{i + 1}</td>
                   <td className="py-3 px-4 border-b text-center">

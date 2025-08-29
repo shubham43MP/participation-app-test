@@ -98,7 +98,10 @@ export const UserForm = () => {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="px-6 py-3 border-2 border-white text-white font-semibold rounded-md hover:bg-white hover:text-cyan-500 transition disabled:opacity-50 self-center sm:self-auto"
+        className="px-6 py-3 border-2 border-white text-white font-semibold rounded-md bg-gradient-to-r from-cyan-500 to-cyan-300
+ hover:from-cyan-300  hover:to-cyan-500 transition-all duration-300 ease-in-out transform hover:scale-105 hover:-translate-y-1
+    hover:shadow-lg shadow-md disabled:opacity-50 disabled:cursor-not-allowed self-center sm:self-auto focus:outline-none focus:ring-2
+     focus:ring-cyan-300 focus:ring-offset-2"
       >
         {isSubmitting ? "Sending..." : "SEND"}
       </button>
