@@ -1,70 +1,101 @@
 "use client";
 
-import { useState } from "react";
-import { createUser } from "@/services/userService";
 import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { createUser } from "@/services/userService";
+
+type FormData = {
+  firstName: string;
+  lastName: string;
+  participationPercentage: number;
+};
 
 export default function UserForm() {
   const router = useRouter();
-  const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
-    participationPercentage: "",
-  });
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<FormData>();
 
-  const handleSubmit = async () => {
-    if (!form.firstName || !form.lastName || !form.participationPercentage) {
-      alert("All fields are required");
-      return;
-    }
-
+  const onSubmit = async (data: FormData) => {
     try {
       await createUser({
-        firstName: form.firstName,
-        lastName: form.lastName,
-        participationPercentage: Number(form.participationPercentage),
+        ...data,
+        participationPercentage: Number(data.participationPercentage),
       });
-
-      setForm({ firstName: "", lastName: "", participationPercentage: "" });
-
+      reset();
       router.refresh();
     } catch (err) {
       console.error(err);
-      alert("Failed to create user");
     }
   };
 
   return (
-    <div className="max-w-6xl mx-auto flex flex-col sm:flex-row gap-4 items-center">
-      <input
-        type="text"
-        placeholder="First name"
-        value={form.firstName}
-        onChange={(e) => setForm({ ...form, firstName: e.target.value })}
-        className="p-3 rounded-md flex-1 bg-white"
-      />
-      <input
-        type="text"
-        placeholder="Last name"
-        value={form.lastName}
-        onChange={(e) => setForm({ ...form, lastName: e.target.value })}
-        className="p-3 rounded-md flex-1 bg-white"
-      />
-      <input
-        type="number"
-        placeholder="Participation"
-        value={form.participationPercentage}
-        onChange={(e) =>
-          setForm({ ...form, participationPercentage: e.target.value })
-        }
-        className="p-3 rounded-md flex-1 bg-white"
-      />
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="max-w-6xl mx-auto flex flex-col sm:flex-row gap-4 items-start"
+    >
+      <div className="flex flex-col flex-1 w-full">
+        <input
+          type="text"
+          placeholder="First name"
+          {...register("firstName", { required: "First name is required" })}
+          className={`p-3 rounded-md bg-white border outline-none ${
+            errors.firstName ? "border-red-500" : "border-transparent"
+          }`}
+        />
+        {errors.firstName && (
+          <p className="text-red-500 text-sm mt-1">
+            {errors.firstName.message}
+          </p>
+        )}
+      </div>
+
+      <div className="flex flex-col flex-1 w-full">
+        <input
+          type="text"
+          placeholder="Last name"
+          {...register("lastName", { required: "Last name is required" })}
+          className={`p-3 rounded-md bg-white border outline-none ${
+            errors.lastName ? "border-red-500" : "border-transparent"
+          }`}
+        />
+        {errors.lastName && (
+          <p className="text-red-500 text-sm mt-1">{errors.lastName.message}</p>
+        )}
+      </div>
+
+      <div className="flex flex-col flex-1 w-full">
+        <input
+          type="number"
+          placeholder="Participation"
+          {...register("participationPercentage", {
+            required: "Participation is required",
+            min: { value: 1, message: "Min 1%" },
+            max: { value: 100, message: "Max 100%" },
+          })}
+          className={`p-3 rounded-md bg-white border outline-none ${
+            errors.participationPercentage
+              ? "border-red-500"
+              : "border-transparent"
+          }`}
+        />
+        {errors.participationPercentage && (
+          <p className="text-red-500 text-sm mt-1">
+            {errors.participationPercentage.message}
+          </p>
+        )}
+      </div>
+
       <button
-        onClick={handleSubmit}
-        className="px-6 py-3 border-2 border-white text-white font-semibold rounded-md hover:bg-white hover:text-cyan-500 transition"
+        type="submit"
+        disabled={isSubmitting}
+        className="px-6 py-3 border-2 border-white text-white font-semibold rounded-md hover:bg-white hover:text-cyan-500 transition disabled:opacity-50 self-center sm:self-auto"
       >
-        SEND
+        {isSubmitting ? "Sending..." : "SEND"}
       </button>
-    </div>
+    </form>
   );
 }
