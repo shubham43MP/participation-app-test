@@ -3,17 +3,8 @@ import DataTable from "@/components/Table";
 import UserForm from "@/components/UserForm";
 import { getUsers } from "@/services/userService";
 
-const data = [
-  { firstName: "Carlos", lastName: "Moura", participation: "5%" },
-  { firstName: "Fernanda", lastName: "Oliveira", participation: "15%" },
-  { firstName: "Hugo", lastName: "Silva", participation: "20%" },
-  { firstName: "Eliza", lastName: "Souza", participation: "20%" },
-  { firstName: "Anderson", lastName: "Santos", participation: "40%" },
-];
-
 export default async function Home() {
   const users = await getUsers();
-  console.log(users);
   return (
     <main className="min-h-screen bg-gray-100">
       <section className="bg-cyan-500 p-8">
