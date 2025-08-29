@@ -22,9 +22,9 @@ export default function DataTable({ data }: DataTableProps) {
           <table className="w-full border-collapse text-sm">
             <thead className="bg-gray-100 sticky top-0 z-10">
               <tr>
-                {TABLE_HEADERS.map((header) => (
+                {TABLE_HEADERS.map((header, index) => (
                   <th
-                    key={header}
+                    key={index}
                     scope="col"
                     className="py-3 px-4 border-b text-center font-semibold text-gray-700"
                   >
