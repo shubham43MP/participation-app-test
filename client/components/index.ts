@@ -1,3 +1,3 @@
 export { UserForm } from "@/components/UserForm";
 export { DataTable } from "@/components/Table";
-export { PieChart } from "@/components/Chart";
+export { DoughnutChart } from "@/components/Chart";

@@ -1,4 +1,4 @@
-import { PieChart, DataTable, UserForm } from "@/components";
+import { DoughnutChart, DataTable, UserForm } from "@/components";
 import { userApi } from "@/services/";
 
 export default async function Home() {
@@ -18,7 +18,7 @@ export default async function Home() {
             <DataTable data={users} />
           </div>
           <div className="flex-1 w-full">
-            <PieChart data={users} />
+            <DoughnutChart data={users} />
           </div>
         </div>
       </section>

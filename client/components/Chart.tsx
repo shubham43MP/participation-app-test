@@ -11,13 +11,13 @@ import {
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
 
-type PieChartProps = {
+type DoughnutChartProps = {
   data: User[];
 };
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export const PieChart: React.FC<PieChartProps> = ({ data }) => {
+export const DoughnutChart: React.FC<DoughnutChartProps> = ({ data }) => {
   const labels = data.map((item) => `${item.firstName} ${item.lastName}`);
   const participationValues = data.map((item) =>
     parseInt(item.participationPercentage.toString())
