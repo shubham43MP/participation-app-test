@@ -2,11 +2,13 @@ import express from 'express';
 import cors from 'cors';
 import logger from './utils/logger';
 import { Request, Response, NextFunction } from 'express';
+import dotenv from 'dotenv';
 import healthRouter from './routes/health.route';
 import userRoutes from './routes/user.route';
 import { responseMiddleware } from './middlewares/response.middleware';
 const app = express();
 
+dotenv.config();
 app.use(cors());
 app.use(express.json());
 app.use(responseMiddleware);

@@ -11,25 +11,27 @@ The app provides a form to collect participation data, displays the data in a ta
 
 **Frontend (client):**
 
-- Next.js (App Router)
-- React + TypeScript
-- Tailwind CSS
-- Chart.js
+- ⚛️ Next.js (App Router)
+- ⚛️ React + TypeScript
+- 🎨 Tailwind CSS
+- 📊 Chart.js
+- 📝 React Hook Form
 
 **Backend (api):**
 
-- Node.js
-- Express.js
-- TypeScript
-- Prisma ORM
-- PostgreSQL
+- 🟩 Node.js
+- 🚏 Express.js
+- 📘 TypeScript
+- 🗂️ Prisma ORM
+- 🐘 PostgreSQL
+- ✅ JOI validation
 
 **Dev Tools:**
 
-- pnpm
-- Docker + docker-compose
-- ESLint + Prettier
-- Husky (git hooks)
+- 📦 pnpm
+- 🐳 Docker + docker-compose
+- ✨ ESLint + Prettier
+- 🐶 Husky (git hooks)
 
 ---
 
@@ -74,29 +76,31 @@ The app provides a form to collect participation data, displays the data in a ta
 
 Create a `.env` file inside both **api/** and **client/**:
 
-**api/.env**
+**📡 api/.env**
 
-```
-DATABASE_URL="postgresql://user:user_password@localhost:5433/user_database?schema=public"
-PORT=8000
+```env
+# 🚀 Server Config
+PORT=5000
+
+# 🐘 PostgreSQL Config
+POSTGRES_USER=user
+POSTGRES_PASSWORD=user_password
+POSTGRES_DB=user_database
+
+# 🔗 Prisma Connection URL
+DATABASE_URL="postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@localhost:5433/${POSTGRES_DB}?schema=public"
 ```
 
-**client/.env**
+**🎨 client/.env**
 
-```
-NEXT_PUBLIC_API_URL=http://localhost:8000
+```env
+# 🌍 API Endpoint
+NEXT_PUBLIC_API_URL=http://localhost:5000
 ```
 
 ---
 
 ## 🚀 Running the App
-
-### 1️⃣ Clone the repo
-
-```bash
-git clone <your-repo-url>
-cd fullstack-challenge
-```
 
 ### 2️⃣ Install dependencies
 
@@ -146,10 +150,12 @@ pnpm --filter client dev
 
 App will be running at:  
 👉 Frontend: `http://localhost:3000`  
-👉 Backend: `http://localhost:8000`
+👉 Backend: `http://localhost:5000`
 
 ---
 
-## 📜 License
+## 📝 Developer Notes
 
-MIT
+- We used Express.js for the backend instead of relying solely on Next.js API routes to keep a clear separation of concerns between frontend and backend. This approach makes the project more maintainable, scalable, and flexible, allowing independent deployments, easier integration with databases and middleware, and the ability to support multiple clients (web, mobile). It also provides a cleaner structure for larger teams and future growth compared to keeping both layers tightly coupled in Next.js.
+
+- We applied partial hydration by isolating client-side interactivity to the PieChart component (marked "use client") while keeping DataTable as a server component. This ensures that only the chart requiring browser APIs and chart.js is bundled and hydrated on the client, whereas static tabular rendering remains server-rendered. The result is reduced client-side JavaScript payload, improved rendering efficiency, and a clearer separation between interactive and non-interactive UI concerns in a React Server Components architecture.

@@ -339,3 +339,13 @@
 2025-08-29 15:39:21 | INFO | POST /users
 2025-08-29 15:39:45 | INFO | GET /users
 2025-08-29 15:41:34 | INFO | 🟢 Server running at 5000
+2025-08-29 15:43:09 | INFO | GET /users
+2025-08-29 15:58:28 | INFO | 🟢 Server running at 5000
+2025-08-29 15:58:35 | INFO | GET /users
+2025-08-29 15:58:36 | INFO | GET /users
+2025-08-29 15:58:36 | INFO | GET /users
+2025-08-29 15:58:40 | INFO | GET /users
+2025-08-29 15:58:54 | INFO | GET /users
+2025-08-29 16:00:17 | INFO | GET /users
+2025-08-29 16:00:21 | INFO | GET /users
+2025-08-29 16:12:14 | INFO | GET /users
