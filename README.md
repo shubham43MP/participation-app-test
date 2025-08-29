@@ -72,6 +72,17 @@ The app provides a form to collect participation data, displays the data in a ta
 
 ---
 
+🧪 Development Environment Used
+
+| Tool    | Version      |
+| ------- | ------------ |
+| Node.js | v20.19.0     |
+| PNPM    | v10.14.0     |
+| Docker  | v28.1.1      |
+| OS      | Ubuntu 23.04 |
+
+---
+
 ## ⚙️ Environment Variables
 
 Create a `.env` file inside both **api/** and **client/**:
