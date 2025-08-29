@@ -1,4 +1,3 @@
-// client/services/fetchClient.ts
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 type RequestOptions = {
