@@ -314,3 +314,6 @@
 2025-08-29 14:41:00 | INFO | GET /users
 2025-08-29 14:45:58 | INFO | POST /users
 2025-08-29 14:45:58 | INFO | GET /users
+2025-08-29 15:17:32 | INFO | 🟢 Server running at 5000
+2025-08-29 15:17:43 | INFO | GET /users
+2025-08-29 15:18:31 | INFO | GET /users
