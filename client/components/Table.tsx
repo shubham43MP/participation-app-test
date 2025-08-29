@@ -26,7 +26,7 @@ export const DataTable = ({ data }: DataTableProps) => {
                   <th
                     key={index}
                     scope="col"
-                    className="py-3 px-4 border-b text-center font-semibold text-gray-700"
+                    className="py-3 px-4 border-b text-center font-semibold text-gray-700 bg-cyan-400"
                   >
                     {header}
                   </th>

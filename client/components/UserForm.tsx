@@ -44,12 +44,12 @@ export const UserForm = () => {
           placeholder="First name"
           {...register("firstName", { required: "First name is required" })}
           className={clsx(
-            "p-3 rounded-md bg-white border outline-none",
+            "p-3 rounded-md bg-white border-2 outline-none",
             errors.firstName ? "border-red-500" : "border-transparent"
           )}
         />
         {errors.firstName && (
-          <p className="text-red-500 text-sm mt-1">
+          <p className="text-red-500 text-sm mt-1 font-semibold">
             {errors.firstName.message}
           </p>
         )}
@@ -61,12 +61,14 @@ export const UserForm = () => {
           placeholder="Last name"
           {...register("lastName", { required: "Last name is required" })}
           className={clsx(
-            "p-3 rounded-md bg-white border outline-none",
+            "p-3 rounded-md bg-white border-2 outline-none",
             errors.lastName ? "border-red-500" : "border-transparent"
           )}
         />
         {errors.lastName && (
-          <p className="text-red-500 text-sm mt-1">{errors.lastName.message}</p>
+          <p className="text-red-500 text-sm mt-1 font-semibold">
+            {errors.lastName.message}
+          </p>
         )}
       </div>
 
@@ -80,14 +82,14 @@ export const UserForm = () => {
             max: { value: 100, message: "Max 100%" },
           })}
           className={clsx(
-            "p-3 rounded-md bg-white border outline-none",
+            "p-3 rounded-md bg-white border-2 outline-none",
             errors.participationPercentage
               ? "border-red-500"
               : "border-transparent"
           )}
         />
         {errors.participationPercentage && (
-          <p className="text-red-500 text-sm mt-1">
+          <p className="text-red-500 text-sm mt-1 font-semibold">
             {errors.participationPercentage.message}
           </p>
         )}
