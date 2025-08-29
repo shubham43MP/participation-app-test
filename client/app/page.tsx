@@ -1,10 +1,8 @@
-import PieChart from "@/components/Chart";
-import DataTable from "@/components/Table";
-import UserForm from "@/components/UserForm";
-import { getUsers } from "@/services/userService";
+import { PieChart, DataTable, UserForm } from "@/components";
+import { userApi } from "@/services/";
 
 export default async function Home() {
-  const { data: users } = await getUsers();
+  const { data: users } = await userApi.getUsers();
   return (
     <main className="min-h-screen bg-gray-100">
       <section className="bg-cyan-500 p-8">

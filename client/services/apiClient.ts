@@ -6,7 +6,7 @@ type RequestOptions = {
   headers?: Record<string, string>;
 };
 
-export async function fetchClient<T>(
+export async function apiClient<T>(
   url: string,
   options: RequestOptions = {}
 ): Promise<T> {

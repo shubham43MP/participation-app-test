@@ -1,4 +1,4 @@
-import { User } from "@/services/userService";
+import { User } from "@/services/userApi";
 
 type DataTableProps = {
   data: User[];
@@ -6,7 +6,7 @@ type DataTableProps = {
 
 const TABLE_HEADERS = ["S.No", "First name", "Last name", "Participation"];
 
-export default function DataTable({ data }: DataTableProps) {
+export const DataTable = ({ data }: DataTableProps) => {
   if (!data || data.length === 0) {
     return (
       <div className="w-full mx-auto shadow-lg rounded-lg bg-white p-6 text-center text-gray-500">
@@ -57,4 +57,4 @@ export default function DataTable({ data }: DataTableProps) {
       </div>
     </div>
   );
-}
+};

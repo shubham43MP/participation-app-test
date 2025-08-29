@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import { createUser } from "@/services/userService";
+import { userApi } from "@/services/";
 
 type FormData = {
   firstName: string;
@@ -10,7 +10,7 @@ type FormData = {
   participationPercentage: number;
 };
 
-export default function UserForm() {
+export const UserForm = () => {
   const router = useRouter();
   const {
     register,
@@ -21,7 +21,7 @@ export default function UserForm() {
 
   const onSubmit = async (data: FormData) => {
     try {
-      await createUser({
+      await userApi.createUser({
         ...data,
         participationPercentage: Number(data.participationPercentage),
       });
@@ -98,4 +98,4 @@ export default function UserForm() {
       </button>
     </form>
   );
-}
+};

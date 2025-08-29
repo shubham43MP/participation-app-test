@@ -1,6 +1,6 @@
 "use client";
 
-import { User } from "@/services/userService";
+import { User } from "@/services/userApi";
 import {
   ArcElement,
   Chart as ChartJS,
@@ -16,7 +16,7 @@ type PieChartProps = {
 };
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const PieChart: React.FC<PieChartProps> = ({ data }) => {
+export const PieChart: React.FC<PieChartProps> = ({ data }) => {
   const labels = data.map((item) => `${item.firstName} ${item.lastName}`);
   const participationValues = data.map((item) =>
     parseInt(item.participationPercentage.toString())
@@ -77,5 +77,3 @@ const PieChart: React.FC<PieChartProps> = ({ data }) => {
     </div>
   );
 };
-
-export default PieChart;

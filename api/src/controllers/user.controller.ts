@@ -6,10 +6,6 @@ export class UserController {
   static async createUser(req: Request, res: Response) {
     try {
       const { firstName, lastName, participationPercentage } = req.body;
-
-      if (!firstName || !lastName || participationPercentage == null) {
-        return res.error('Missing required fields', HTTP_STATUS.BAD_REQUEST);
-      }
       const user = await UserService.createUser(
         firstName,
         lastName,
