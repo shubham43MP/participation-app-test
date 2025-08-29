@@ -9,7 +9,7 @@ import {
   Tooltip,
 } from "chart.js";
 import React from "react";
-import { Pie } from "react-chartjs-2";
+import { Doughnut, Pie } from "react-chartjs-2";
 
 type PieChartProps = {
   data: User[];
@@ -42,7 +42,7 @@ export const PieChart: React.FC<PieChartProps> = ({ data }) => {
     ],
   };
 
-  const options: ChartOptions<"pie"> = {
+  const options: ChartOptions<"doughnut"> = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
@@ -73,7 +73,7 @@ export const PieChart: React.FC<PieChartProps> = ({ data }) => {
 
   return (
     <div className="relative w-full h-96 max-w-lg mx-auto">
-      <Pie data={chartData} options={options} />
+      <Doughnut data={chartData} options={options} />
     </div>
   );
 };
