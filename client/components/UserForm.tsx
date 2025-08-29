@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import clsx from "clsx";
 import { userApi } from "@/services/";
 
 type FormData = {
@@ -42,9 +43,10 @@ export const UserForm = () => {
           type="text"
           placeholder="First name"
           {...register("firstName", { required: "First name is required" })}
-          className={`p-3 rounded-md bg-white border outline-none ${
+          className={clsx(
+            "p-3 rounded-md bg-white border outline-none",
             errors.firstName ? "border-red-500" : "border-transparent"
-          }`}
+          )}
         />
         {errors.firstName && (
           <p className="text-red-500 text-sm mt-1">
@@ -58,9 +60,10 @@ export const UserForm = () => {
           type="text"
           placeholder="Last name"
           {...register("lastName", { required: "Last name is required" })}
-          className={`p-3 rounded-md bg-white border outline-none ${
+          className={clsx(
+            "p-3 rounded-md bg-white border outline-none",
             errors.lastName ? "border-red-500" : "border-transparent"
-          }`}
+          )}
         />
         {errors.lastName && (
           <p className="text-red-500 text-sm mt-1">{errors.lastName.message}</p>
@@ -76,11 +79,12 @@ export const UserForm = () => {
             min: { value: 1, message: "Min 1%" },
             max: { value: 100, message: "Max 100%" },
           })}
-          className={`p-3 rounded-md bg-white border outline-none ${
+          className={clsx(
+            "p-3 rounded-md bg-white border outline-none",
             errors.participationPercentage
               ? "border-red-500"
               : "border-transparent"
-          }`}
+          )}
         />
         {errors.participationPercentage && (
           <p className="text-red-500 text-sm mt-1">

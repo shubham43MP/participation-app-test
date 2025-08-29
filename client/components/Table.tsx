@@ -18,7 +18,7 @@ export const DataTable = ({ data }: DataTableProps) => {
   return (
     <div className="w-full mx-auto shadow-lg rounded-lg bg-white">
       <div className="overflow-hidden border border-gray-200 rounded-lg">
-        <div className="max-h-96 overflow-y-auto">
+        <div className="overflow-y-auto">
           <table className="w-full border-collapse text-sm">
             <thead className="bg-gray-100 sticky top-0 z-10">
               <tr>
