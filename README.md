@@ -119,19 +119,10 @@ At the root of the project:
 
 ```bash
 pnpm install
+pnpm run build:prisma
 ```
 
-Inside api/ setup Prisma:
-
-```bash
-cd api
-pnpm add -D prisma
-pnpm add @prisma/client
-pnpm prisma migrate dev --name init
-pnpm prisma generate
-```
-
-### 3️⃣ Run with Docker (recommended)
+### 3️⃣ Run with Docker
 
 ```bash
 docker-compose up
