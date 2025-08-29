@@ -1,23 +1,18 @@
-import React from "react";
+type User = {
+  id: number;
+  firstName: string;
+  lastName: string;
+  participationPercentage: number;
+};
 
-const columns = [
-  { Header: "First name", accessor: "firstName" },
-  { Header: "Last name", accessor: "lastName" },
-  { Header: "Participation", accessor: "participation" },
-];
+type Props = {
+  data: User[];
+};
 
-const data = [
-  { firstName: "Carlos", lastName: "Moura", participation: "5%" },
-  { firstName: "Fernanda", lastName: "Oliveira", participation: "15%" },
-  { firstName: "Hugo", lastName: "Silva", participation: "20%" },
-  { firstName: "Eliza", lastName: "Souza", participation: "20%" },
-  { firstName: "Anderson", lastName: "Santos", participation: "40%" },
-];
-
-export default function DataTable() {
+export default function DataTable({ data }: Props) {
   return (
-    <div className="overflow-x-auto w-full max-w-lg mx-auto shadow-lg rounded-lg bg-white">
-      <table className="min-w-full border border-gray-200">
+    <div className="overflow-x-auto w-full mx-auto shadow-lg rounded-lg bg-white">
+      <table className="w-full border border-gray-200">
         <thead className="bg-gray-100">
           <tr>
             <th className="py-3 px-4 border-b text-center font-semibold text-gray-700">
@@ -35,14 +30,21 @@ export default function DataTable() {
           </tr>
         </thead>
         <tbody>
-          {data.map((row, i) => (
-            <tr key={i} className="even:bg-gray-50">
-              <td className="py-3 px-4 border-b">{i + 1}</td>
-              <td className="py-3 px-4 border-b">{row.firstName}</td>
-              <td className="py-3 px-4 border-b">{row.lastName}</td>
-              <td className="py-3 px-4 border-b">{row.participation}</td>
-            </tr>
-          ))}
+          {data &&
+            data.map((row, i) => (
+              <tr key={row.id} className="even:bg-gray-50">
+                <td className="py-3 px-4 border-b text-center">{i + 1}</td>
+                <td className="py-3 px-4 border-b text-center">
+                  {row.firstName}
+                </td>
+                <td className="py-3 px-4 border-b text-center">
+                  {row.lastName}
+                </td>
+                <td className="py-3 px-4 border-b text-center">
+                  {row.participationPercentage}%
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>

@@ -1,4 +1,7 @@
+import PieChart from "@/components/Chart";
 import DataTable from "@/components/Table";
+import UserForm from "@/components/UserForm";
+import { getUsers } from "@/services/userService";
 
 const data = [
   { firstName: "Carlos", lastName: "Moura", participation: "5%" },
@@ -8,37 +11,27 @@ const data = [
   { firstName: "Anderson", lastName: "Santos", participation: "40%" },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const users = await getUsers();
+  console.log(users);
   return (
     <main className="min-h-screen bg-gray-100">
       <section className="bg-cyan-500 p-8">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row gap-4 items-center">
-          <input
-            type="text"
-            placeholder="First name"
-            className="p-3 rounded-md flex-1 sm:min-w-0 min-w-2/3 bg-white"
-          />
-          <input
-            type="text"
-            placeholder="Last name"
-            className="p-3 rounded-md flex-1 sm:min-w-0 min-w-2/3 bg-white"
-          />
-          <input
-            type="text"
-            placeholder="Participation"
-            className="p-3 rounded-md flex-1 sm:min-w-0 min-w-2/3 bg-white"
-          />
-          <button className="px-6 py-3 sm:w-1/7 w-1/3 border-2 border-white text-white font-semibold rounded-md hover:bg-white hover:text-cyan-500 transition">
-            SEND
-          </button>
-        </div>
+        <UserForm />
       </section>
-      <section className="max-w-4xl mx-auto py-16 text-center">
+      <section className="max-w-3/4 mx-auto py-16 text-center">
         <h1 className="text-3xl font-bold mb-4">DATA</h1>
         <p className="text-gray-600">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </p>
-        <DataTable />
+        <div className="flex flex-col flex-wrap md:flex-row w-full items-center justify-around md:gap-16 gap-8 mt-12">
+          <div className="flex-1 w-full">
+            <DataTable data={users.data} />
+          </div>
+          <div className="flex-1 w-full">
+            <PieChart data={users.data} />
+          </div>
+        </div>
       </section>
     </main>
   );
