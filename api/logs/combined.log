@@ -228,3 +228,8 @@
 2025-08-29 12:09:38 | INFO | 🟢 Server running at 8000
 2025-08-29 12:09:45 | INFO | 🟢 Server running at 8000
 2025-08-29 12:10:19 | INFO | 🟢 Server running at 8000
+2025-08-29 12:11:30 | INFO | GET /api/users
+2025-08-29 12:11:31 | INFO | GET /api/users
+2025-08-29 12:11:32 | INFO | GET /api/users
+2025-08-29 12:11:37 | INFO | GET /users
+2025-08-29 12:11:38 | INFO | GET /users
