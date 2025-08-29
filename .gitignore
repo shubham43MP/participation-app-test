@@ -39,5 +39,5 @@ Thumbs.db
 # pnpm store (if local)
 .pnpm-store
 
-api/logs/
+api/logs
 
