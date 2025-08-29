@@ -1,11 +1,11 @@
 import { fetchClient } from "./fetchClient";
 
 export type User = {
-  id: number;
+  id?: number;
   firstName: string;
   lastName: string;
   participationPercentage: number;
-  createdAt: string;
+  createdAt?: string;
 };
 
 export type UsersResponse = {
