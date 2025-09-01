@@ -1,5 +1,9 @@
-# Node.js
-node_modules
+# Node modules (ignore in all packages)
+**/node_modules
+
+# Logs
+logs
+*.log
 npm-debug.log*
 pnpm-debug.log*
 yarn-debug.log*
@@ -18,10 +22,15 @@ logs
 # Env files
 .env
 .env.*.local
+api/.env
+client/.env
+
 
 # Vite / React
 client/.vite
 client/dist
+.next
+out
 
 # API build
 api/dist
