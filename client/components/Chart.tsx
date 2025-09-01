@@ -57,6 +57,7 @@ export const DoughnutChart: React.FC<DoughnutChartProps> = ({ data }) => {
   const options: ChartOptions<"doughnut"> = {
     responsive: true,
     maintainAspectRatio: false,
+    layout: { padding: 10 },
     plugins: {
       legend: {
         position: "right",
