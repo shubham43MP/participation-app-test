@@ -206,3 +206,7 @@ pnpm run test:api
 ## App snapshots
 
 ![Dashboard preview](/assets/app-dashboard.png)
+
+## Working APP demo
+
+![Dashboard demo](/assets/app-dashboard.gif)
