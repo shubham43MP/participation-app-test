@@ -120,7 +120,7 @@ NEXT_PUBLIC_API_URL=http://localhost:5000
 ### 1 Run with Docker
 
 ```bash
-docker-compose up
+docker compose up
 ```
 
 ### 2 Install dependencies
@@ -210,3 +210,26 @@ pnpm run test:api
 ## Working APP demo
 
 ![Dashboard demo](/assets/app-dashboard.gif)
+
+### Troubleshooting (optional)
+
+In case you get below issue while running docker compose up, providing resolution steps for the same. I got container name conflicts while testing setup which might be helpful.
+
+#### Container name conflict
+If you encounter an error like this when running `docker compose up`:
+
+```
+Error response from daemon: Conflict. The container name "/Container name" is already in use by container "<container_id>".
+```
+
+It means a container with the same name already exists. To resolve this, remove the existing container with:
+
+```bash
+docker rm -f Container name
+```
+
+Then re-run:
+
+```bash
+docker compose up
+```
