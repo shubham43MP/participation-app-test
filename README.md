@@ -97,9 +97,11 @@ PORT=5000
 POSTGRES_USER=user
 POSTGRES_PASSWORD=user_password
 POSTGRES_DB=user_database
+POSTGRES_HOST=localhost
+POSTGRES_PORT=5433
 
 # 🔗 Prisma Connection URL
-DATABASE_URL="postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@localhost:5433/${POSTGRES_DB}?schema=public"
+DATABASE_URL="postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}?schema=public"
 ```
 
 **🎨 client/.env**
@@ -153,6 +155,31 @@ pnpm --filter client dev
 App will be running at:  
 👉 Frontend: `http://localhost:3000`  
 👉 Backend: `http://localhost:5000`
+
+---
+
+🧪 Running Tests
+
+This project uses Jest with support for both frontend (client) and backend (api) tests.
+Tests can be run individually or all at once from the monorepo root.
+
+Run all tests
+
+```bash
+pnpm run test
+```
+
+Run frontend (client) tests only
+
+```bash
+pnpm run test:client
+```
+
+Run backend (api) tests only
+
+```bash
+pnpm run test:api
+```
 
 ---
 
