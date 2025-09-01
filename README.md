@@ -115,7 +115,13 @@ NEXT_PUBLIC_API_URL=http://localhost:5000
 
 ## 🚀 Running the App
 
-### 2️⃣ Install dependencies
+### 1 Run with Docker
+
+```bash
+docker-compose up
+```
+
+### 2 Install dependencies
 
 At the root of the project:
 
@@ -124,13 +130,7 @@ pnpm install
 pnpm run build:prisma
 ```
 
-### 3️⃣ Run with Docker
-
-```bash
-docker-compose up
-```
-
-### 4️⃣ Run manually with pnpm workspaces
+### 3 Run manually with pnpm workspaces
 
 Run both frontend & backend together:
 
