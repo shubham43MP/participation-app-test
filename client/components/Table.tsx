@@ -1,4 +1,5 @@
 import { User } from "@/services/userApi";
+import React from "react";
 
 type DataTableProps = {
   data: User[];
