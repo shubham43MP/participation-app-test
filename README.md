@@ -179,7 +179,7 @@ pnpm run test:api
 
 ## Architecture Decisions and Salient features
 
-- The structure is a monorepo with turbo repo
+- The structure is a monorepo with pnpm workspaces
 
 ### Backend with Express.js instead of Next.js API routes
 
