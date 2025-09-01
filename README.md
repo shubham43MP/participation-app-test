@@ -185,6 +185,36 @@ pnpm run test:api
 
 ## 📝 Developer Notes
 
-- We used Express.js for the backend instead of relying solely on Next.js API routes to keep a clear separation of concerns between frontend and backend. This approach makes the project more maintainable, scalable, and flexible, allowing independent deployments, easier integration with databases and middleware, and the ability to support multiple clients (web, mobile). It also provides a cleaner structure for larger teams and future growth compared to keeping both layers tightly coupled in Next.js.
+## Architecture Decisions
 
-- We applied partial hydration by isolating client-side interactivity to the PieChart component (marked "use client") while keeping DataTable as a server component. This ensures that only the chart requiring browser APIs and chart.js is bundled and hydrated on the client, whereas static tabular rendering remains server-rendered. The result is reduced client-side JavaScript payload, improved rendering efficiency, and a clearer separation between interactive and non-interactive UI concerns in a React Server Components architecture.
+### Backend with Express.js instead of Next.js API routes
+
+- Maintains a clear separation of concerns between frontend (Next.js) and backend (Express).
+
+- Improves maintainability, scalability, and flexibility of the project.
+
+- Allows independent deployments of frontend and backend services.
+
+- Provides easier integration with databases, authentication, and custom middleware.
+
+- Enables support for multiple clients (web, mobile, etc.) using the same backend.
+
+- Gives a cleaner structure for larger teams and long-term project growth compared to keeping both layers tightly coupled in Next.js.
+
+### Partial Hydration with React Server Components
+
+- Client-side interactivity is isolated only to the PieChart component (marked "use client").
+
+- The DataTable remains a server component, rendered on the server without shipping unnecessary JavaScript to the browser.
+
+- Ensures only components that require browser APIs (chart.js) are bundled and hydrated on the client.
+
+- Reduces client-side JavaScript payload and improves rendering performance.
+
+- Creates a clearer separation between interactive and non-interactive UI concerns.
+
+- Aligns with modern React Server Components (RSC) architecture best practices for efficiency.
+
+## Screenshot
+
+![alt text](Screenshot.png)
