@@ -94,9 +94,9 @@ Create a `.env` file inside both **api/** and **client/**:
 PORT=5000
 
 # 🐘 PostgreSQL Config
-POSTGRES_USER=user
-POSTGRES_PASSWORD=user_password
-POSTGRES_DB=user_database
+POSTGRES_USER=your_db_user
+POSTGRES_PASSWORD=your_db_password
+POSTGRES_DB=your_db_name
 POSTGRES_HOST=localhost
 POSTGRES_PORT=5433
 
